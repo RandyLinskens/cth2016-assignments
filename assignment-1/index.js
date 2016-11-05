@@ -35,10 +35,11 @@ program
   .option('-t, --title [value]', 'Book title')
   .option('-a, --author [value]', 'Author name')
   .option('-p, --price [value]', 'Book price')
-  .option('-t, --type [value]', 'Book type')
+  .option('-T, --type [value]', 'Book type')
   .parse(process.argv);
 
 //console.log(program.title);
+
 
 switch(program.title)
 {
@@ -73,8 +74,8 @@ switch(program.title)
         console.log(book5_type);
         break;
     default:
-        console.log('No match...');
-        break; 
+        console.log("No match...");
+        break;
 }
 
 //console.log(program.author);
@@ -112,9 +113,12 @@ switch(program.author)
         console.log(book5_type);
         break;
     default:
-        console.log('No match...');
-        break; 
+        console.log("No match...");
+        break;
    }
+
+//console.log(program.price);
+
 switch(program.price)
 {
     case book1_price: 
@@ -148,9 +152,11 @@ switch(program.price)
         console.log(book5_type);
         break;
     default:
-        console.log('No match...');
-        break; 
-   }
+        console.log("No match...");
+        break;
+}
+
+//console.log(program.type);
 switch(program.type)
 {
     case book1_type: 
@@ -184,8 +190,8 @@ switch(program.type)
         console.log(book5_type);
         break;
     default:
-        console.log('No match...');
-        break; 
+        console.log("No match...");
+        break;
    }
 
 
