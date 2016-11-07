@@ -73,10 +73,7 @@ switch(program.title)
         console.log("Price: " + book5_price);
         console.log("Type: " + book5_type);
         break;
-    default:
-        console.log("No match...");
-        break;
-}
+    }
 
 //console.log(program.author);
 
@@ -111,9 +108,6 @@ switch(program.author)
         console.log("Author: " + book5_author);
         console.log("Price: " + book5_price);
         console.log("Type: " + book5_type);
-        break;
-    default:
-        console.log("No match...");
         break;
    }
 
@@ -151,10 +145,7 @@ switch(program.price)
         console.log("Price: " + book5_price);
         console.log("Type: " + book5_type);
         break;
-    default:
-        console.log("No match...");
-        break;
-}
+    }
 
 //console.log(program.type);
 switch(program.type)
@@ -190,8 +181,8 @@ switch(program.type)
         console.log("Type: " + book5_type);
         break;
     default:
-        console.log("No match...");
-        break;
+        console.log('No match...');
+    break;
    }
 
 
