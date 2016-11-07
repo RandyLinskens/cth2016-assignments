@@ -44,34 +44,34 @@ program
 switch(program.title)
 {
     case book1_title: 
-        console.log(book1_title);
-        console.log(book1_author);
-        console.log(book1_price);
-        console.log(book1_type);
+        console.log("Title: " + book1_title);
+        console.log("Author: " + book1_author);
+        console.log("Price: " + book1_price);
+        console.log("Type: " + book1_type);
         break;
     case book2_title:
-        console.log(book2_title);
-        console.log(book2_author);
-        console.log(book2_price);
-        console.log(book2_type);
+        console.log("Title: " + book2_title);
+        console.log("Author: " + book2_author);
+        console.log("Price: " + book2_price);
+        console.log("Type: " + book2_type);
         break;
     case book3_title:
-        console.log(book3_title);
-        console.log(book3_author);
-        console.log(book3_price);
-        console.log(book3_type);
+        console.log("Title: " + book3_title);
+        console.log("Author: " + book3_author);
+        console.log("Price: " + book3_price);
+        console.log("Type: " + book3_type);
         break;
     case book4_title:
-        console.log(book4_title);
-        console.log(book4_author);
-        console.log(book4_price);
-        console.log(book4_type);
+        console.log("Title: " + book4_title);
+        console.log("Author: " + book4_author);
+        console.log("Price: " + book4_price);
+        console.log("Type: " + book4_type);
         break;
     case book5_title:
-        console.log(book5_title);
-        console.log(book5_author);
-        console.log(book5_price);
-        console.log(book5_type);
+        console.log("Title: " + book5_title);
+        console.log("Author: " + book5_author);
+        console.log("Price: " + book5_price);
+        console.log("Type: " + book5_type);
         break;
     default:
         console.log("No match...");
@@ -83,34 +83,34 @@ switch(program.title)
 switch(program.author)
 {
     case book1_author: 
-        console.log(book1_title);
-        console.log(book1_author);
-        console.log(book1_price);
-        console.log(book1_type);
+        console.log("Title: " + book1_title);
+        console.log("Author: " + book1_author);
+        console.log("Price: " + book1_price);
+        console.log("Type: " + book1_type);
         break;
     case book2_author:
-        console.log(book2_title);
-        console.log(book2_author);
-        console.log(book2_price);
-        console.log(book2_type);
+        console.log("Title: " + book2_title);
+        console.log("Author: " + book2_author);
+        console.log("Price: " + book2_price);
+        console.log("Type: " + book2_type);
         break;
     case book3_author:
-        console.log(book3_title);
-        console.log(book3_author);
-        console.log(book3_price);
-        console.log(book3_type);
+        console.log("Title: " + book3_title);
+        console.log("Author: " + book3_author);
+        console.log("Price: " + book3_price);
+        console.log("Type: " + book3_type);
         break;
     case book4_author:
-        console.log(book4_title);
-        console.log(book4_author);
-        console.log(book4_price);
-        console.log(book4_type);
+        console.log("Title: " + book4_title);
+        console.log("Author: " + book4_author);
+        console.log("Price: " + book4_price);
+        console.log("Type: " + book4_type);
         break;
     case book5_author:
-        console.log(book5_title);
-        console.log(book5_author);
-        console.log(book5_price);
-        console.log(book5_type);
+        console.log("Title: " + book5_title);
+        console.log("Author: " + book5_author);
+        console.log("Price: " + book5_price);
+        console.log("Type: " + book5_type);
         break;
     default:
         console.log("No match...");
@@ -122,34 +122,34 @@ switch(program.author)
 switch(program.price)
 {
     case book1_price: 
-        console.log(book1_title);
-        console.log(book1_author);
-        console.log(book1_price);
-        console.log(book1_type);
+        console.log("Title: " + book1_title);
+        console.log("Author: " + book1_author);
+        console.log("Price: " + book1_price);
+        console.log("Type: " + book1_type);
         break;
     case book2_price:
-        console.log(book2_title);
-        console.log(book2_author);
-        console.log(book2_price);
-        console.log(book2_type);
+        console.log("Title: " + book2_title);
+        console.log("Author: " + book2_author);
+        console.log("Price: " + book2_price);
+        console.log("Type: " + book2_type);
         break;
     case book3_price:
-        console.log(book3_title);
-        console.log(book3_author);
-        console.log(book3_price);
-        console.log(book3_type);
+        console.log("Title: " + book3_title);
+        console.log("Author: " + book3_author);
+        console.log("Price: " + book3_price);
+        console.log("Type: " + book3_type);
         break;
     case book4_price:
-        console.log(book4_title);
-        console.log(book4_author);
-        console.log(book4_price);
-        console.log(book4_type);
+        console.log("Title: " + book4_title);
+        console.log("Author: " + book4_author);
+        console.log("Price: " + book4_price);
+        console.log("Type: " + book4_type);
         break;
     case book5_price:
-        console.log(book5_title);
-        console.log(book5_author);
-        console.log(book5_price);
-        console.log(book5_type);
+        console.log("Title: " + book5_title);
+        console.log("Author: " + book5_author);
+        console.log("Price: " + book5_price);
+        console.log("Type: " + book5_type);
         break;
     default:
         console.log("No match...");
@@ -160,34 +160,34 @@ switch(program.price)
 switch(program.type)
 {
     case book1_type: 
-        console.log(book1_title);
-        console.log(book1_author);
-        console.log(book1_price);
-        console.log(book1_type);
+        console.log("Title: " + book1_title);
+        console.log("Author: " + book1_author);
+        console.log("Price: " + book1_price);
+        console.log("Type: " + book1_type);
         break;
     case book2_type:
-        console.log(book2_title);
-        console.log(book2_author);
-        console.log(book2_price);
-        console.log(book2_type);
+        console.log("Title: " + book2_title);
+        console.log("Author: " + book2_author);
+        console.log("Price: " + book2_price);
+        console.log("Type: " + book2_type);
         break;
     case book3_type:
-        console.log(book3_title);
-        console.log(book3_author);
-        console.log(book3_price);
-        console.log(book3_type);
+        console.log("Title: " + book3_title);
+        console.log("Author: " + book3_author);
+        console.log("Price: " + book3_price);
+        console.log("Type: " + book3_type);
         break;
     case book4_type:
-        console.log(book4_title);
-        console.log(book4_author);
-        console.log(book4_price);
-        console.log(book4_type);
+        console.log("Title: " + book4_title);
+        console.log("Author: " + book4_author);
+        console.log("Price: " + book4_price);
+        console.log("Type: " + book4_type);
         break;
     case book5_type:
-        console.log(book5_title);
-        console.log(book5_author);
-        console.log(book5_price);
-        console.log(book5_type);
+        console.log("Title: " + book5_title);
+        console.log("Author: " + book5_author);
+        console.log("Price: " + book5_price);
+        console.log("Type: " + book5_type);
         break;
     default:
         console.log("No match...");
