@@ -73,6 +73,11 @@ switch(program.title)
         console.log("Price: " + book5_price);
         console.log("Type: " + book5_type);
         break;
+    case "empty":
+        break;
+    default:
+        console.log('No match...');
+        break
     }
 
 //console.log(program.author);
@@ -109,6 +114,11 @@ switch(program.author)
         console.log("Price: " + book5_price);
         console.log("Type: " + book5_type);
         break;
+    case "empty":
+        break;
+    default:
+        console.log('no match...');
+        break
    }
 
 //console.log(program.price);
@@ -145,7 +155,13 @@ switch(program.price)
         console.log("Price: " + book5_price);
         console.log("Type: " + book5_type);
         break;
+    case "empty":
+        break;
+    default:
+        console.log('no match...');
+        break  
     }
+
 
 //console.log(program.type);
 switch(program.type)
@@ -180,9 +196,11 @@ switch(program.type)
         console.log("Price: " + book5_price);
         console.log("Type: " + book5_type);
         break;
+    case "empty":
+        break;
     default:
-        console.log('No match...');
-    break;
+        console.log('no match...');
+        break
    }
 
 
