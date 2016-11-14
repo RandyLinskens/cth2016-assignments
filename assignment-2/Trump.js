@@ -76,8 +76,8 @@ var answer = 'Donald';
 
 program
   .version('The Donald Q&A generator 1.0')
-  .option('-q, --question [Vraag]', 'Question generation')
-  .option('-a, --answer [Antwoord]', 'Answer generation')
+  .option('-q, --question [Vraag]', 'Question generation: i.e. Type -> "-q Donald"')
+  .option('-a, --answer [Antwoord]', 'Answer generation: i.e. Type -> "-a Donald"')
   .parse(process.argv);
 
 
