@@ -1,8 +1,14 @@
 {
-  "name": "assignment2",
+  "name": "trump_debate_generator",
   "version": "1.0.0",
-  "description": "Bookstore",
-  "main": "bookstore.js",
+  "description": "the trump half of the Donald and Hillary debate generator",
+  "main": "Trump.js",
+  "dependencies": {
+    "commander": "^2.9.0",
+    "chance": "^1.0.4",
+    "word-wrap": "^1.1.0"
+  },
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,7 +16,7 @@
     "type": "git",
     "url": "git+https://github.com/RandyLinskens/cth2016-assignments.git"
   },
-  "author": "Linskens",
+  "author": "linskens",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/RandyLinskens/cth2016-assignments/issues"
