@@ -61,7 +61,7 @@ const continous = [' nuking', ' invading', ' forgetting', ' expanding', ' wrecki
 				  ' relying on', ' neglecting', ' conquering', ' seperating', ' getting rid of', ' securing', ' finishing', ' destroying', ' breaking']; 
 
 const antw3 = [' is the answer', ' is the solution', ' is the only answer', ' is the only solution', ' is going to solve the problem', ' is going to get us rich', ' is going to create jobs', 
-				' is going to solve everything', ' will solve it', ' would make me happy', ' is going to make you cry', ' is going make them cry', ' is going to be best for us', ' is going to be best for them', 
+				' is going to solve everything', ' will solve it', ' would make me happy', ' is going to make you cry', ' is going to make them cry', ' is going to be best for us', ' is going to be best for them', 
 				' is going to make earth a better place', ' is going to make America great again', ' till the end', ' till it is over', ' till death', ' till death do us apart', ' at home', 
 				' at the White House', ' at the Oval Office', ' with Uncle Sam', ' in America', ' in Mexico', ' is going to secure the economy'];
 	//always maybe
