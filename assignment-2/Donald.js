@@ -78,6 +78,8 @@ program
   .version('The Donald Q&A generator 1.0')
   .option('-q, --question [Vraag]', 'Question generation: i.e. Type -> "-q Donald"')
   .option('-a, --answer [Antwoord]', 'Answer generation: i.e. Type -> "-a Donald"')
+  .option('-w, --width [Breedte]', 'Width of the answer: i.e. Type -> "60"')
+  .option('-s, --sentences [Aantal]', 'Number of sentences (this is only a function for the "answer": i.e. Type -> "5"')
   .parse(process.argv);
 
 
@@ -127,6 +129,18 @@ function longvr() {
 //antw1 + (AV) + (adjectives) + nouns, + antw2 + (verst) + verbs2 + continous + (AV) + (adjectives) + nouns + (antw3).
 //Example:	[Talking about]+[(our)]+[(great)]+[muslims], +[I]+[(firmly)]+[recommend]+[accepting]+[(their)]+[(lovable)]+[shootings]+[would make America great again].
 
+
+
+//Variable for width
+
+	var width = parseInt(program.width);
+
+//Variable for number of sentences
+
+	var sentences = parseInt(program.sentences)
+
+
+
 //Word-wrap shortvr
 
 	var text1 = shortvr();
@@ -138,25 +152,29 @@ function longvr() {
 //Word-wrap Answer(1)
 	var text3 = shortantw();
 		
-	
 
-//Word-wrap Answer(2)	
+//Word-wrap Answer(2)	inserted a parseInt to control the amount of sentences that will be printed. 
+
 	 var text4 = '';
- 		for(var i = 0; i < 3; i++){
+ 		for(var i = 0; i < parseInt(program.sentences); i++){
 
- 			text4 += longantw();
+ 			 text4 += longantw();
 	}
 //only necessary loop
 
 
+
 //Start of the discussion 
+
+
+
 
 switch(program.question) { 
 	case question:
 		console.log('\n\n');
-	 	console.log(wrap(text1, {'width': 65}));
+	 	console.log(wrap(text1, {width}));
 	 	console.log('\n');
-	 	console.log(wrap(text2, {'width': 65}));
+	 	console.log(wrap(text2, {width}));
 	 	console.log('\n\n');
 	 	break;
 }
@@ -164,9 +182,9 @@ switch(program.question) {
 switch(program.answer) {
 	case answer:
 		console.log('\n\n')
-		console.log(wrap(text3, {'width': 65}));
+		console.log(wrap(text3, {width}));
 		console.log('\n')
-		console.log(wrap(text4, {'width': 65}));
+		console.log(wrap(text4, {width}));
 	 	console.log('\n\n');
 		break;
 }
