@@ -79,7 +79,7 @@ program
   .option('-q, --question [Vraag]', 'Question generation: i.e. Type -> "-q Donald"')
   .option('-a, --answer [Antwoord]', 'Answer generation: i.e. Type -> "-a Donald"')
   .option('-w, --width [Breedte]', 'Width of the answer: i.e. Type -> "60"')
-  .option('-s, --sentences [Aantal]', 'Number of sentences (this is only a function for the "answer": i.e. Type -> "5"')
+  .option('-s, --sentences [Aantal]', 'Number of sentences (usable when genereating an answer): i.e. Type -> "5"')
   .parse(process.argv);
 
 
