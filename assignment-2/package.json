@@ -2,7 +2,7 @@
   "name": "trump_debate_generator",
   "version": "1.0.0",
   "description": "the trump half of the Donald and Hillary debate generator",
-  "main": "Trump.js",
+  "main": "Donald.js",
   "dependencies": {
     "commander": "^2.9.0",
     "chance": "^1.0.4",
