@@ -1,0 +1,134 @@
+<!-- the html code for the Don-bot -->
+
+
+<html>
+
+	<head>	
+
+		<title>The Donabot</title>	
+
+		<style>
+			/* CSS Styling */
+			#frame {
+				width: 30em;
+			}
+			textarea {
+				width: 100%;
+				border: 1px solid #888;
+				padding: 10px;
+			}
+			#inputs, #text_field {
+				width: 100%;
+			}
+		</style>
+
+	</head>
+	
+	<font face="Lucida Fax" size="5" color="RED">
+
+	<header>
+
+	<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Republicanlogo.svg/1179px-Republicanlogo.svg.png" alt="republicans" align='left' width='5%'; height='8%';> 
+	<h1 align="center">The Donachat</h1>
+	
+
+	</header>
+	
+	<!-- You can now click the image shown on the page which links you to a (in this case) a youtube video.-->
+	<!-- Adjusted the size and place for the image.-->
+
+	<p>
+		<a href="https://www.youtube.com/watch?v=jlGd6_vCkbg" target="_blank">
+			<img style="max-width:95%;border:6px groove #545565;" img src="https://ronekissrichmond.files.wordpress.com/2015/07/158579624.jpg" alt="Donald" align="right"
+						width="30%"; height="75%";>
+		</a>
+	</p>
+
+
+
+	<body bgcolor="#F3F781">		
+		<!-- HTML -->
+
+
+		<label>Chatterbox</label>
+
+		<div id="frame">
+
+			<!-- text area where the conversation is displayed -->
+			<textarea id="conversation" readonly placeholder="Hi there, you want to know what I, Donald J Trump, think of certain political topics... Fire away!" text = ... rows="10" cols="65"></textarea>
+
+			<!-- inputs from human to send to server -->
+			<font size="3">
+			<div id="inputs">
+				<label>Your question please: </label>
+				<input id="text_field" type="text" onkeydown="enter_message();" onblur="this.placeholder = ..your question" placeholder="..your question" onkeydown="enter_message(); "/>
+				<input type="button" id="send_button" value="Send" onclick="send_message();"/>
+			</div>
+
+		<footer>
+
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+
+		<!-- created a footnote in a smaller font-->
+
+		<font size="2" color="black">
+
+		<f1><i>DonaldBot Beta</i>© features very official opinions last refined on 20/11/2016.</f1>
+
+		<br>
+		<br>
+
+		<!-- No specefic reason why I did this, just wanted to add something stupid. -->
+
+		<a href="https://media.giphy.com/media/125lGp4gvB6ztK/giphy.gif" target="_blank">
+			<div id="exit">
+				<input type="button" id="terminate" value="Terminate the Donald" onclick="self.close();"/>
+			</div>
+		</a>
+
+		</footer>
+	
+		</div>		
+
+		<!-- SCRIPTS -->
+		<!-- import socket.io -->
+			<script src="/socket.io/socket.io.js"></script>
+			<script>
+						// connect to localhost on its port (see server.js -- 8088)
+					  var socket = io().connect('http://localhost:8088');
+
+					  // when connecting 
+					  socket.on('connect', function (data) {
+					  	console.log('We are now live with Donald');
+					  });
+
+					  // when receiving a custom message form the server ('message from robot')
+					  socket.on('DonBot: ', function(msg) {
+
+					  	document.getElementById("conversation").value += 'Donald: ' + msg + '\n';
+
+					  	console.log('Donald: ' + msg);
+					  });
+
+					  function send_message() {
+
+					  	var text = document.getElementById("text_field").value;
+
+					  	document.getElementById("conversation").value += 'You: ' + text + '\n';
+
+					  	socket.emit('message from human', text);
+
+						document.getElementById("text_field").value = '';		  	
+
+					  }
+			</script>		
+	</body>
+</html>
