@@ -5,6 +5,10 @@
           Clients can send questions or short remarks to the server which then returns an answer.
           This assignment is a continuation of the last one where I created a sort of Donald Trump bot.
           I thought that idea fitted perfectly with the assignment for this week. 
+
+          *One remark regarding the matches function. It seems that it responds with the first 'if'
+          each time you use the word 'think', we couldn't figure out what the problem was. So as for
+          the questions you ask our bots, it is best to just ask how donald feels about a certain topic.*
   author: Linskens
   date:   20/11/16
 */
