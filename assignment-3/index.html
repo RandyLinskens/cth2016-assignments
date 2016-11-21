@@ -22,6 +22,10 @@
 			}
 		</style>
 
+	<body bgcolor="#F3F781">		
+		<!-- HTML -->
+
+
 	</head>
 	
 	<font face="Lucida Fax" size="5" color="RED">
@@ -46,10 +50,6 @@
 
 
 
-	<body bgcolor="#F3F781">		
-		<!-- HTML -->
-
-
 		<label>Chatterbox</label>
 
 		<div id="frame">
@@ -57,11 +57,19 @@
 			<!-- text area where the conversation is displayed -->
 			<textarea id="conversation" readonly placeholder="Hi there, you want to know what I, Donald J Trump, think of certain political topics... Fire away!" text = ... rows="10" cols="65"></textarea>
 
-			<!-- inputs from human to send to server -->
+			<!-- inputs from human to send to server
+			Implemented the function to send a message with the enter button-->
 			<font size="3">
 			<div id="inputs">
 				<label>Your question please: </label>
 				<input id="text_field" type="text" onkeydown="enter_message();" onblur="this.placeholder = ..your question" placeholder="..your question" onkeydown="enter_message(); "/>
+						<script>
+						function enter_message() {
+							if(event.keyCode == 13) {
+								send_message();
+							}
+						}
+						</script>
 				<input type="button" id="send_button" value="Send" onclick="send_message();"/>
 			</div>
 
@@ -90,7 +98,15 @@
 
 		<a href="https://media.giphy.com/media/125lGp4gvB6ztK/giphy.gif" target="_blank">
 			<div id="exit">
-				<input type="button" id="terminate" value="Terminate the Donald" onclick="self.close();"/>
+					<script>
+						function play(){
+      					var audio = document.getElementById("audio");
+       					audio.play();
+                 		}
+					</script>
+			<input type="button" id="terminate" value="Terminate the Donald" onclick="play();"/>
+				<audio id="audio" src="http://www.music.army.mil/music/play.asp?TheStarSpangledBanner_ChorusOnly.mp3">
+				</audio>
 			</div>
 		</a>
 

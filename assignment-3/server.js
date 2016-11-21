@@ -70,7 +70,7 @@ const aanhef = ['Now listen,', 'You want to know what I think?', 'The way I see 
 const ow = [' we', ' all Americans', ' me and my future government', ' all voters', ' we as a country', ' all of us', ' we as a nation',
             ' us and by us I mean the greatest country in the world'];
 
-const ww = [' have to', ' need to', ' got to', ' have got to', ' must', ' have no other option but to', ' only have to', ' just have to', ' are forced to', ' are forced to',
+const ww = [' have to', ' need to', ' got to', ' have got to', ' must', ' have no other option but to', ' only have to', ' just have to', ' are forced to', 
              " can't think of anything else but"];
 
 const wwpos = [' accept', ' welcome', ' embrace', ' help', ' comfort', ' restore', 'fund', ' encourage', ' subsidize', 
@@ -109,7 +109,7 @@ const zlfstnw_antw4 = [' muslim extremists', ' ISIS rebels', ' rebels', ' Islami
 
 const zlfstnw_antw5 = [' economic recessions', ' recessions', ' stock market problems', ' stock markets', ' markets', ' debts', ' inflations', ' impoverishments', ' banks', ' bankers', ' brokers', ' financing problems', ' people of Wall Street'];
 
-const zlfstnw_antw6 = [' Mexicans', ' Mexican people', ' Latin Americans', ' Mexican workers', ' Latin American guest workers', ' leeches', ' chinks', ' rats'];
+const zlfstnw_antw6 = [' Mexicans', ' Mexican people', ' Taco-eaters', ' Latins', ' Latin Americans', ' Mexican workers', ' Latin American guest workers', ' leeches', ' chinks', ' rats'];
 
 const zlfstnw_antw7 = [" LGBT's", ' women rights', ' women', ' poor people', ' lower class people', ' minorities', ' black fellow Americans', ' African Americans', ' black people'];
 
@@ -118,9 +118,9 @@ const zlfstnw_antw8 = [' democrats', ' Hillary supporters', " Hilldogs", ' left 
 const default_answers = ['Why would you say that? Please, continue with your next question or shut up... For the love of god.', "Ohh stop it... I don't have time for this", "You think you're funny?",
                       "Please, you think this is fun for me? Next question.", "I will make America great again.", "Lalala... I am a retard, I don't understand a word you just said."];
 
-const aanvul1 = ['Does that answer you question?', "Don't you agree?", "Right?", "If you disagree you can fuck off.", "And that's my humble opinion",
-                'That is the way the cookie crumbles.', 'Satisfied?', 'Next question please.', "Ha Ha, I'm so amazing.", "Jep... Now I'm bored.", 
-                "Have I told you how rich I am?", "Carry on, my dear friend."];
+const aanvul1 = [' Does that answer you question?', "Don't you agree?", "Right?", " If you disagree you can fuck off.", " And that's my humble opinion",
+                'That is the way the cookie crumbles.', 'Satisfied?', 'Next question please.', " Ha Ha, I'm so amazing.", " Jep... Now I'm bored.", 
+                " Have I told you how rich I am?", "Carry on, my dear friend."];
 
 
 //Creating the functions that compute the randomness of the words in the answer sentences
@@ -140,7 +140,7 @@ function maybe(array) {
 } 
 
 
-//The greating linked to the time. 
+//The greeting linked to the time. 
 
  function Dagdeel(time) {
     var time = new Date().getHours();
@@ -158,8 +158,8 @@ function maybe(array) {
       }
 
 
-/*I saw after I was done with this that you used switches to generate the different answers. 
-Since this worked fine as well, I decided to stick with this.*/
+/*We saw after we we're done with this that you used switches to generate the different answers. 
+Since this worked fine as well, we decided to stick with this.*/
 
 
 function answer(msg) {
