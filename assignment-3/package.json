@@ -6,9 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "gauthier",
+  "author": "Linskens",
   "license": "ISC",
   "dependencies": {
+    "chance": "^1.0.4",
     "express": "^4.14.0",
     "socket.io": "^1.5.1"
   }
