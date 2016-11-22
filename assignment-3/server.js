@@ -80,7 +80,7 @@ const ww = [' have to', ' need to', ' got to', ' have got to', ' must', ' have n
 const wwpos = [' accept', ' welcome', ' embrace', ' help', ' comfort', ' restore', 'fund', ' encourage', ' subsidize', 
                 ' adore', ' support', ' admire', ' care for', ' strengthen', ' promote', ' assist', ' aid'];
 
-const wwneg = [' solve', ' end', ' finish', 'seperate', ' nuke', ' destroy', ' register', ' clean out', ' cast out', ' delete',
+const wwneg = [' solve', ' end', ' finish', ' seperate', ' nuke', ' destroy', ' register', ' clean out', ' cast out', ' delete',
                ' secure', ' neglect', ' rinse', ' refuse', ' stop', ' terminate', ' wreck', ' ditch'];
 
 const wwposlijd = [' accepted', ' welcomed', ' embraced', ' helped', ' comforted', ' entertained',  ' adored', ' supported', 
