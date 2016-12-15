@@ -1,0 +1,569 @@
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> 
+    <title>Let's TweetMeet!</title>
+    <style>
+      /* The map covers the entire page */
+      #map {
+        height: 100%;
+        width: 100%;
+      }
+      html, body {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      /* This is the first panel - which lets the user search for tweets. 
+      this panel as all of the div's and items across the page have the same styling more or less.
+      we used the z-index function to make it hover over the map.*/
+      #floating-panel {
+        position: absolute;
+        height: 5%;
+        width: 42%;
+        top: 10px;
+        left: 28%;
+        bottom: 91%;
+        z-index: 5;
+        background-color: #4885ed;
+        color: #F5F5DC;
+        padding: 5px;
+        padding-top: 10px;
+        border: none;
+        border-radius: 10px;
+        text-align: center;
+        font-family: 'Roboto','sans-serif';
+        font-size: 16;
+        line-height: 30px;
+        padding-left: 10px;
+        box-shadow: 0 7px 16px 0 rgba(0,0,0,0.24), 0 7px 50px 0 rgba(0,0,0,0.19);
+      }
+      /*This is the class for the button within the first panel.*/
+      .buttoned {
+        border: none;
+        padding-top: 2px;
+        padding-left: 10px;
+        color: #F5F5DC;
+        font-size: 16px;
+        font-weight: bold;
+        font-family: 'Roboto','sans-serif';
+        background-color: #4886ed; 
+      }
+      /* when clicked it gets pressed in, which is the transform function. (think it doesn't work in
+      safari.) */
+      .buttoned:active {
+        border: none;
+        background-color: none;
+        box-shadow: 0 5px none;
+        transform: translateY(1.5px);
+      }
+      /* when hovering over the button it changes color (the letters). */
+      .buttoned:hover {
+        background-color: #4885ed;
+        color: #ADD8E6;
+      }   
+
+      /* since this button (the lets tweetmeet button) had to be seperated from
+      the panel we created a seperate div with different classes.*/  
+      #but {
+        position: absolute;
+        left: 73%;
+        right: 4%;
+        bottom: 93.2%;
+        z-index: 5;
+        height: 5%;
+        width: 10%;
+      }
+      .buttonz {
+        color: #F5F5DC;
+        width: 10%
+        height: 15%;
+        border-radius: 7px;
+        border: none;
+        background-color: #4885ed;
+        padding: 7px;
+        font-size: 20px;
+        font-weight: bold;
+        font-family: 'Roboto','sans-serif';
+        letter-spacing: 1.3px;
+        box-shadow: 0 7px 16px 0 rgba(0,0,0,0.24), 0 7px 50px 0 rgba(0,0,0,0.19);
+        -webkit-transition-duration: 0.4s; /* Safari */
+        transition-duration: 0.4s;
+        cursor: pointer;
+      }
+      .buttonz:active {
+        border: none;
+        background-color: none;
+        box-shadow: 0 5px none;
+        transform: translateY(25px);
+      }
+      .buttonz:hover {
+        background-color: #4885ed;
+        color: #ADD8E6;
+      }        
+      /* we created a class for the banners on the bottom of the page. Adapted the opacity to make them
+      see through. */
+      .ex {
+        position: absolute;
+        border: none;
+        border-radius: 10px;
+        z-index: 5;
+        width: 30%;
+        height: 5%;
+        background-color: #4885ed;
+        text-align: center;
+        font-family: 'Roboto','sans-serif';
+        font-size: 15px;
+        line-height: 5px;
+        padding-left: 10px;
+        box-shadow: 0 7px 16px 0 rgba(0,0,0,0.24), 0 7px 50px 0 rgba(0,0,0,0.19);
+        letter-spacing: 1.5px;
+        opacity: 0.8;        
+      }
+      /* placing of the banners. */
+      #logo {
+        left: 1%;
+        top: 89%;
+      }
+      #cop {
+        left: 1%;
+        top: 82.2%;
+      }
+      /* This is the frame for the tweets */
+      #tweets {
+        position: absolute;
+        left: 1%;
+        height: 10%;
+        width: 50%;
+        z-index: 5;
+        top: 70%;
+      }
+      /* the first tweet in within the frame */
+      .tweet1 {
+        font-family: 'Roboto', 'sans-serif';
+        border: 1px: solid;
+        border-radius: 10px;
+        box-shadow: 0 7px 16px 0 rgba(0,0,0,0.24), 0 7px 50px 0 rgba(0,0,0,0.19);
+      }
+      /* second tweet. */
+      .tweet2 {
+        font-family: 'Roboto', 'sans-serif';
+        border: 1px: solid;
+        border-radius: 10px;
+        box-shadow: 0 7px 16px 0 rgba(0,0,0,0.24), 0 7px 50px 0 rgba(0,0,0,0.19);
+      }   
+      /* we wanted the audio to have a pretty border as well, it seems to be different in
+      every browser since every browser has a different way of showing the audio panel.*/
+      #audio {
+        position: absolute;
+        border: 5px solid;
+        border-radius: 10px;
+        border-color: #4885ed;
+        height: 5%;
+        width: 20%;
+        z-index: 5;
+        top: 91%;
+        left: 76%;
+        box-shadow: 0 7px 16px 0 rgba(0,0,0,0.24), 0 7px 50px 0 rgba(0,0,0,0.19);        
+      }
+      /* travel modes -  has a dropdown menu with radio buttons.*/
+      #mode {
+        position: absolute;
+        left: 85%;
+        top: 1.6%;
+        border: none;
+        border-radius: 10px;
+        border-color: #4855ed;
+        z-index: 5;
+      }
+      /* the dropdown menu itself */
+      .dropdown {
+        position: absolute;
+        top: 65px;
+        left: 153%;
+        z-index: 5;
+        background-color: #4885ed;
+        padding: 5px;
+        border: none;
+        border-radius: 10px;
+        text-align: center;
+        font-size: 17px;
+        font-weight: bold;
+        font-family: 'Roboto','sans-serif';
+        line-height: 30px;
+        padding-left: 10px;
+        box-shadow: 0 7px 16px 0 rgba(0,0,0,0.24), 0 7px 50px 0 rgba(0,0,0,0.19);
+        -webkit-transition-duration: 0.4s;
+        transition-duration: 0.4s;
+        cursor: pointer;
+      }
+      /* the button */
+      .dropbtn {
+        background-color: #4885ed;
+        color: #F5F5DC;
+        padding: 5px;
+        font-size: 20px;
+        font-weight: bold;
+        font-family: 'Roboto', 'sans-serif'; 
+        border: none;
+        cursor: pointer;
+        letter-spacing: 1.5px;
+      }
+      /* the seperate options */
+      .dropdown-content {
+        display: none;
+        text-align: left;
+        position: absolute;
+        background-color: #F5F5DC;
+        min-width: 180px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      }
+      /* text */
+      .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+      }
+      /* hover over text */
+      .dropdown-content a:hover {
+        background-color: #ADD8E6;
+      }
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
+      .dropdown:hover .dropbtn {
+        background-color: #4885ed;
+        color: #ADD8E6;
+        transform: translateY(1px);
+      }
+      /* color of the letters within the banners, could not change it within the class itself. */
+      p {
+        color: #F5F5DC;
+      }
+      /* the popup styling */
+      #warnings-panel {
+        width: 100%;
+        height:10%;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+
+  
+  
+    <div id="floating-panel">
+    
+   
+    <!-- <input id="testknop" hidden type="button" value="Vind Tweet" onclick="search_tweet_1();"> -->
+    <b>Start: </b>
+      <input id="start" type="text" placeholder="Twitter startpunt">
+    <b>Eind: </b>
+      <input id="eind" type="text" placeholder="Twitter bestemming">
+        <textarea hidden id="startlocatie" readonly placeholder="Output location tweet 1"></textarea>
+      <textarea hidden id="eindlocatie" readonly onchange="onChangeHandler();" placeholder="Output location tweet 2"></textarea>
+            <input id="search" class='buttoned' type="button" value="Zoek tweets" onclick="search();">
+    </div>
+
+        <div id='tweets'>
+          <textarea id="starttweet" class='tweet1' cols='28' rows='5' readonly placeholder="Hier komt de StartTweet"></textarea>
+          <textarea id="eindtweet" class='tweet2' cols='28' rows='5' readonly placeholder="Hier komt de EindTweet"></textarea>
+        </div>
+
+    <div id='but'>
+      <input id="route" type="button" class='buttonz' value="TweetMeet!" onclick="onChangeHandler();document.getElementById('audio').play();">
+    </div>    
+
+
+    <div id="logo" class='ex'>
+      <p>A little whitty program to unite twitter users. </p>
+    </div>
+
+    <div id='cop' class='ex'>
+      <p>© Rahul Gandolahage and Randy Linskens </p>
+    </div>
+
+    <audio id="audio" preload controls src="http://fernandes.nelson.free.fr/Jo/08-stromae-carmen.mp3" type="audio/mp3"></audio>
+    
+    <div id='mode' class='dropdown'>
+      <button class='dropbtn'>Vervoersmethode</button>
+      <div class="dropdown-content">
+      <form action="">
+        <input type="radio" id="auto" name="reismethode" value="DRIVING" checked >Auto<br>
+        <input type="radio" id="fiets" name="reismethode" value="BICYCLING">Fiets<br>
+        <input type="radio" id="lopen" name="reismethode" value="WALKING">Lopen<br>
+        <input type="radio" id="ov" name="reismethode" value="TRANSIT">Openbaar vervoer<br>
+      </form>
+     </div>
+    </div>
+
+   <script>
+  
+//function to search both Tweets with one button
+ function search() {
+    
+    search_tweet_1();
+    search_tweet_2();
+
+}
+
+    </script>
+
+
+    <div id="map"></div>
+    &nbsp;
+    <div id="warnings-panel"></div>
+
+<script src="/socket.io/socket.io.js"></script>
+    <script>
+      // connect to localhost on its port (see server.js -- 8088)
+      var socket = io().connect('http://localhost:8088');
+
+      // the map object -- (which needs to be initialised -- see init_map())
+      var map = null;
+
+      // all maps markers
+      var markers = [];
+
+      // when connecting 
+      socket.on('connect', function (data) {
+        console.log('connected');
+      });
+
+
+
+//-------TWEET ONE SEARCH---------------------------------------------------
+
+function search_tweet_1() {
+
+//get searchvalue
+    keyword = document.getElementById("start").value;
+
+//Preventing the code to break when there is no value
+if (keyword != "") { 
+
+    search_param = {keyword_value: keyword}
+
+    console.log('>>Twittersearch: ' + keyword);
+
+//send to server
+     socket.emit('search_twitter_start', search_param);
+
+//-----results------
+//use results from server 
+      socket.on('search_twitter_results_start', function(msg) { 
+
+//print all to consolescreen
+        console.log('Tweet 1: ' + '\n' + msg.tweet + '\n\n' + 'Locatie 1: ' + '\n' + msg.location + '\n');
+
+//print location to (hidden) element
+        document.getElementById("startlocatie").value = msg.location; 
+
+//print tweet to element
+        document.getElementById("starttweet").value = msg.tweet; 
+
+      
+      });
+
+   } else { 
+
+//Alert when start.value is empty
+  window.alert('You need to fill in a Twittersearch to start your route!')
+
+  }
+
+}
+
+
+//-------TWEET TWO SEARCH---------------------------------------------------
+ 
+//Search second Tweet (see documentation search_tweet_1)
+function search_tweet_2() {
+
+  keyword = document.getElementById("eind").value;
+
+  if (keyword != "") { 
+
+  search_param = {keyword_value: keyword}
+
+  console.log('>>Twittersearch: ' + keyword);
+
+
+     socket.emit('search_twitter_eind', search_param);
+
+      
+      socket.on('search_twitter_results_eind', function(msg) { 
+
+        console.log('Tweet 2: ' + '\n' + msg.tweet + '\n\n' + 'Locatie 2: ' + '\n' + msg.location + '\n');
+
+        document.getElementById("eindlocatie").value = msg.location; 
+
+        document.getElementById("eindtweet").value = msg.tweet; 
+
+
+      });
+
+    } else { 
+
+      window.alert('You need to fill in a Twittersearch to end your route!')
+  }
+}
+
+
+//-------ERRORMESSAGES------------------------------------------------------
+
+//serverinput when one or both search(es) doesn't give locationresults
+socket.on('errormessagestart', function(msg){
+  
+  window.alert(msg)
+
+});
+
+ socket.on('errormessageeind', function(msg){
+
+   window.alert(msg);
+
+});
+
+//-------MAP---------------------------------------------------------------
+
+      var markerArray = [];
+      var directionsService = null;
+      var map = null;
+      var directionsDisplay = null;
+      var stepDisplay = null;
+
+      function initMap() {    
+
+        // Instantiate a directions service.
+        directionsService = new google.maps.DirectionsService;
+
+        // Create a map and center it on Manhattan.
+        map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 13,
+          center: {lat: 52.379189, lng: 4.899431}
+        });
+
+        // Create a renderer for directions and bind it to the map.
+        directionsDisplay = new google.maps.DirectionsRenderer({map: map});
+
+        // Instantiate an info window to hold step text.
+        stepDisplay = new google.maps.InfoWindow;
+
+        // Display the route between the initial start and end selections.
+        calculateAndDisplayRoute(
+            directionsDisplay, directionsService, markerArray, stepDisplay, map);
+        // Listen to change events from the start and end lists.
+        document.getElementById('startlocatie').addEventListener('change', onChangeHandler);
+        document.getElementById('eindlocatie').addEventListener('change', onChangeHandler);
+      } 
+
+        var onChangeHandler = function() {
+          markerArray = [];
+          calculateAndDisplayRoute(
+              directionsDisplay, directionsService, markerArray, stepDisplay, map);
+        };
+
+      function calculateAndDisplayRoute(directionsDisplay, directionsService,
+          markerArray, stepDisplay, map) {
+        // First, remove any existing markers from the map.
+
+        
+        for (var i = 0; i < markerArray.length; i++) {
+          markerArray[i].setMap(null);
+        }
+
+// Select travelmode
+      if (document.getElementById('auto').checked) { 
+        
+        var reismethode = google.maps.DirectionsTravelMode.DRIVING; 
+
+        } else if (document.getElementById('fiets').checked) { 
+
+           var reismethode = google.maps.DirectionsTravelMode.BICYCLING;
+
+           } else if (document.getElementById('lopen').checked) {
+
+               var reismethode = google.maps.DirectionsTravelMode.WALKING;
+
+               } else if (document.getElementById('ov').checked) {
+
+                   var reismethode = google.maps.DirectionsTravelMode.TRANSIT;
+
+                } else { window.alert("Please select a travelmode")
+      
+        }
+       
+
+        // Retrieve the start and end locations and create a DirectionsRequest using
+        // WALKING directions.
+        directionsService.route({
+          origin: document.getElementById('startlocatie').value,     
+          destination: document.getElementById('eindlocatie').value, 
+          travelMode: reismethode
+        }, function(response, status) {
+          // Route the directions and pass the response to a function to create
+          // markers for each step.
+        if (status === 'OK') {
+            document.getElementById('warnings-panel').innerHTML =
+                '<b>' + response.routes[0].warnings + '</b>';
+            directionsDisplay.setDirections(response);
+            showSteps(response, markerArray, stepDisplay, map);
+          } else {
+            window.alert("Welcome to Let's tweetMeet© \n Unite two tweets with one website! \n\n By Randy and Rahul");
+          }
+        });
+      } 
+
+      function showSteps(directionResult, markerArray, stepDisplay, map) {
+        // For each step, place a marker, and add the text to the marker's infowindow.
+        // Also attach the marker to an array so we can keep track of it and remove it
+        // when calculating new routes.
+        var myRoute = directionResult.routes[0].legs[0];
+        for (var i = 0; i < myRoute.steps.length; i++) {
+          var marker = markerArray[i] = markerArray[i] || new google.maps.Marker;
+          marker.setMap(map);
+          marker.setPosition(myRoute.steps[i].start_location);
+          attachInstructionText(
+              stepDisplay, marker, myRoute.steps[i].instructions, map);
+        }
+      }
+
+      function attachInstructionText(stepDisplay, marker, text, map) {
+        google.maps.event.addListener(marker, 'click', function() {
+          // Open an info window when the marker is clicked on, containing the text
+          // of the step.
+          stepDisplay.setContent(text);
+          stepDisplay.open(map, marker);
+        });
+      }
+      function add_marker_information(marker) {
+
+        markers.push(marker);
+
+      google.maps.event.addListener(marker, 'click', (function(marker) {
+
+        return function(evt) {
+
+          var content = marker.getTitle();
+          var info = google.maps.InfoWindow();
+          info.setContent(content);
+          info.open(map, marker);
+
+        }
+
+      })(marker));
+
+      }
+
+    </script>
+
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBdU4BWxmedxcoz1-emiPeTl2Zv3Lamzvw&callback=initMap">
+    </script>
+  </body>
+</html>

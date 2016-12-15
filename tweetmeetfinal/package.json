@@ -1,0 +1,19 @@
+{
+  "name": "tweetmeet",
+  "version": "1.0.0",
+  "description": "Let us unite two tweeters",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Randy & Rahul",
+  "license": "ISC",
+  "dependencies": {
+    "chance": "^1.0.4",
+    "express": "^4.14.0",
+    "fs": "0.0.1-security",
+    "http": "0.0.0",
+    "socket.io": "^1.7.2",
+    "twitter": "^1.7.0"
+  }
+}
